@@ -27,7 +27,7 @@ EOF
 
 Notice that in this example Provider resource is referencing ControllerConfig with debug enabled.
 
-You can see the API reference [here](https://doc.crds.dev/github.com/crossplane/provider-mongodb-atlas).
+You can see the API reference [here](https://doc.crds.dev/github.com/fsnow/provider-mongodb-atlas).
 
 ## Developing
 
@@ -57,4 +57,4 @@ make build
 ## Report a Bug
 
 For filing bugs, suggesting improvements, or requesting new features, please
-open an [issue](https://github.com/crossplane/provider-mongodb-atlas/issues).
+open an [issue](https://github.com/fsnow/provider-mongodb-atlas/issues).

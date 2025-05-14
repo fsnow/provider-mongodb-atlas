@@ -1,4 +1,4 @@
-module github.com/crossplane/provider-mongodb-atlas
+module github.com/fsnow/provider-mongodb-atlas
 
 go 1.21
 

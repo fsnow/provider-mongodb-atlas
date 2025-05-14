@@ -11,7 +11,7 @@ import (
 
 	"github.com/crossplane/upjet/pkg/pipeline"
 
-	"github.com/crossplane/provider-mongodb-atlas/config"
+	"github.com/fsnow/provider-mongodb-atlas/config"
 )
 
 func main() {

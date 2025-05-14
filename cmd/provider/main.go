@@ -31,12 +31,12 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 	"sigs.k8s.io/controller-runtime/pkg/metrics"
 
-	"github.com/crossplane/provider-mongodb-atlas/apis"
-	"github.com/crossplane/provider-mongodb-atlas/apis/v1alpha1"
-	"github.com/crossplane/provider-mongodb-atlas/config"
-	"github.com/crossplane/provider-mongodb-atlas/internal/clients"
-	"github.com/crossplane/provider-mongodb-atlas/internal/controller"
-	"github.com/crossplane/provider-mongodb-atlas/internal/features"
+	"github.com/fsnow/provider-mongodb-atlas/apis"
+	"github.com/fsnow/provider-mongodb-atlas/apis/v1alpha1"
+	"github.com/fsnow/provider-mongodb-atlas/config"
+	"github.com/fsnow/provider-mongodb-atlas/internal/clients"
+	"github.com/fsnow/provider-mongodb-atlas/internal/controller"
+	"github.com/fsnow/provider-mongodb-atlas/internal/features"
 )
 
 func main() {
