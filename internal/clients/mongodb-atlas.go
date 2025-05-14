@@ -15,7 +15,12 @@ import (
 
 	"github.com/crossplane/upjet/pkg/terraform"
 
-	"github.com/upbound/upjet-provider-template/apis/v1beta1"
+	"github.com/crossplane/provider-mongodb-atlas/apis/v1beta1"
+)
+
+const (
+	keyPublicKey  = "public_key"
+	keyPrivateKey = "private_key"
 )
 
 const (
@@ -24,7 +29,7 @@ const (
 	errGetProviderConfig    = "cannot get referenced ProviderConfig"
 	errTrackUsage           = "cannot track ProviderConfig usage"
 	errExtractCredentials   = "cannot extract credentials"
-	errUnmarshalCredentials = "cannot unmarshal template credentials as JSON"
+	errUnmarshalCredentials = "cannot unmarshal mongodb-atlas credentials as JSON"
 )
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
@@ -57,16 +62,21 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		if err != nil {
 			return ps, errors.Wrap(err, errExtractCredentials)
 		}
-		creds := map[string]string{}
-		if err := json.Unmarshal(data, &creds); err != nil {
+
+		mongodbatlasCreds := map[string]string{}
+		if err := json.Unmarshal(data, &mongodbatlasCreds); err != nil {
 			return ps, errors.Wrap(err, errUnmarshalCredentials)
 		}
 
-		// Set credentials in Terraform provider configuration.
-		/*ps.Configuration = map[string]any{
-			"username": creds["username"],
-			"password": creds["password"],
-		}*/
+		ps.Configuration = map[string]any{}
+
+		if v, ok := mongodbatlasCreds[keyPublicKey]; ok {
+			ps.Configuration[keyPublicKey] = v
+		}
+		if v, ok := mongodbatlasCreds[keyPrivateKey]; ok {
+			ps.Configuration[keyPrivateKey] = v
+		}
+
 		return ps, nil
 	}
 }
